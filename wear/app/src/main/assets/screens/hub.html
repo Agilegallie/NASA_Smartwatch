@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Crew Command — Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="watch.css"/>
+</head>
+<body>
+  <div class="watch" id="watch">
+    <header class="watch-header">
+      <span class="label">▮▮▮</span>
+      <span class="met">MET 12:04:32</span>
+      <span class="label">⚡</span>
+    </header>
+    <div class="watch-content" style="padding-bottom: 58px">
+      <div class="hub-title">
+        <div class="app-name">CREW COMMAND</div>
+        <div class="app-sub">SELECT MODULE</div>
+      </div>
+      <div class="hub-grid">
+        <a class="hub-tile tile-timeline" href="timeline.html">
+          <span class="tile-icon">📅</span>
+          <span class="tile-label">Timeline</span>
+          <span class="tile-status">EVA ACTIVE · 65%</span>
+        </a>
+        <a class="hub-tile tile-cautions" href="cautions.html">
+          <span class="badge-count">4</span>
+          <span class="tile-icon">⚠</span>
+          <span class="tile-label">Cautions</span>
+          <span class="tile-status">STATUS: CRITICAL</span>
+        </a>
+        <a class="hub-tile tile-comm" href="communication.html">
+          <span class="tile-icon">📡</span>
+          <span class="tile-label">Comms</span>
+          <span class="tile-status">VOICE OK · VID SEARCH</span>
+        </a>
+        <a class="hub-tile tile-timers" href="timers.html">
+          <span class="tile-icon">⏱</span>
+          <span class="tile-label">Timers</span>
+          <span class="tile-status">EVA-1 · 00:42:13</span>
+        </a>
+      </div>
+      <p class="hub-hint">
+        TAP TO OPEN · ← → SWIPE MODULES<br/>
+        ESC OR H = RETURN HERE
+      </p>
+    </div>
+    <nav class="watch-nav" aria-label="Module navigation"></nav>
+  </div>
+  <script src="nav.js"></script>
+  <script>CrewNav.init("hub");</script>
+</body>
+</html>

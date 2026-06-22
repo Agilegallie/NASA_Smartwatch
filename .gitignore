@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Android / Gradle
+wear/.gradle/
+wear/app/.gradle/
+wear/**/build/
+wear/local.properties
+**/local.properties
+*.apk
+*.aab
+*.hprof
+.cxx/
+.externalNativeBuild/
+
+# Gradle wrapper cache (keep gradlew + wrapper jar)
+!wear/gradle/wrapper/gradle-wrapper.jar
+
+# Cursor / tooling
+.cursor/

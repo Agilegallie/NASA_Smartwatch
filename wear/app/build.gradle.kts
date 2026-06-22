@@ -1,0 +1,55 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
+android {
+    namespace = "com.crewcommand.watch"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.crewcommand.watch"
+        minSdk = 30
+        targetSdk = 35
+        versionCode = 4
+        versionName = "1.2"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        compose = true
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+dependencies {
+    val composeBom = platform("androidx.compose:compose-bom:2024.12.01")
+
+    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.activity:activity-compose:1.9.3")
+    implementation(composeBom)
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.wear.compose:compose-material:1.4.0")
+    implementation("androidx.wear.compose:compose-foundation:1.4.0")
+
+    debugImplementation(composeBom)
+    debugImplementation("androidx.compose.ui:ui-tooling")
+}
+
+// Android Studio sync invokes this task; register a no-op so Gradle sync succeeds.
+tasks.register("prepareKotlinBuildScriptModel") {}

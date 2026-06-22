@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Communication Status — Pixel Watch</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="watch.css"/>
+</head>
+<body>
+  <div class="watch" id="watch">
+    <header class="watch-header">
+      <span class="label">▮▮▮</span>
+      <span class="met">MET 12:04:32</span>
+      <span class="label">⚡</span>
+    </header>
+    <div class="watch-content">
+      <p class="label" style="text-align:center;margin-top:36px;color:var(--tertiary)">GROUND COMMS</p>
+      <div style="text-align:center;margin:8px 0">
+        <div style="width:84px;height:84px;border:1px dashed var(--outline);border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:32px">🚀</div>
+        <p class="label" style="margin-top:6px">ALIGN: NOMINAL · LVLH</p>
+      </div>
+      <div class="comm-rings">
+        <div class="comm-ring active">
+          <div class="ring">🎙</div>
+          <div class="label" style="color:var(--tertiary)">VOICE</div>
+          <div class="value" style="font-size:10px;color:var(--tertiary)">82% ACTIVE</div>
+          <div class="label">S-BAND · MCC-H</div>
+        </div>
+        <div class="comm-ring inactive">
+          <div class="ring">📹</div>
+          <div class="label">VIDEO</div>
+          <div class="value" style="font-size:10px">SEARCHING</div>
+          <div class="label">KU · TDRS-Z 04:12</div>
+        </div>
+      </div>
+      <div class="chips">
+        <div class="chip"><div class="label">LATENCY</div><div class="value" style="color:var(--tertiary)">240ms</div></div>
+        <div class="chip"><div class="label">UPLINK</div><div class="value" style="color:var(--primary)">12.4Mb</div></div>
+      </div>
+      <p class="swipe-hint">RINGS = SIGNAL STRENGTH · TAP FOR LINK DETAIL</p>
+    </div>
+    <nav class="watch-nav" aria-label="Module navigation"></nav>
+  </div>
+  <script src="nav.js"></script>
+  <script>CrewNav.init('communication');</script>
+</body>
+</html>

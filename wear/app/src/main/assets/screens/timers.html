@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Timers — Pixel Watch</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="watch.css"/>
+</head>
+<body>
+  <div class="watch" id="watch">
+    <header class="watch-header">
+      <span class="label">▮▮▮</span>
+      <span class="met">MET 12:04:32</span>
+      <span class="label">⚡</span>
+    </header>
+    <div class="watch-content">
+      <div class="ring-container">
+        <svg viewBox="0 0 180 180">
+          <circle cx="90" cy="90" r="82" fill="none" stroke="#2a2a2a" stroke-width="6"/>
+          <circle cx="90" cy="90" r="82" fill="none" stroke="#13ff43" stroke-width="6"
+            stroke-dasharray="515" stroke-dashoffset="130" stroke-linecap="round"
+            transform="rotate(-90 90 90)" id="ring"/>
+        </svg>
+        <div class="ring-center">
+          <span class="label">EVA-1 START</span>
+          <span class="value-lg" id="timer">00:42:13</span>
+          <span class="label" style="color:var(--secondary)">▲ NOMINAL</span>
+        </div>
+      </div>
+      <div class="card" style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div class="label">NEXT: SLEEP</div>
+          <div class="value" style="font-size:16px">06:12:00</div>
+        </div>
+        <span>🛏</span>
+      </div>
+      <button class="btn-pill btn-primary" id="toggle" type="button">STOP PROCEDURE</button>
+      <p class="swipe-hint">RING DEPLETES · GREEN→YELLOW→ORANGE AT THRESHOLDS</p>
+    </div>
+    <nav class="watch-nav" aria-label="Module navigation"></nav>
+  </div>
+  <script src="nav.js"></script>
+  <script>
+    let running = true, secs = 42*60+13;
+    const display = document.getElementById('timer');
+    const btn = document.getElementById('toggle');
+    const ring = document.getElementById('ring');
+    const total = 3600;
+    function fmt(s) {
+      const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+      return [h,m,sec].map(n=>String(n).padStart(2,'0')).join(':');
+    }
+    setInterval(() => {
+      if (running && secs > 0) {
+        secs--;
+        display.textContent = fmt(secs);
+        ring.setAttribute('stroke-dashoffset', 515 * (1 - secs/total));
+      }
+    }, 1000);
+    btn.onclick = () => {
+      running = !running;
+      btn.textContent = running ? 'STOP PROCEDURE' : 'START PROCEDURE';
+      btn.className = running ? 'btn-pill btn-primary' : 'btn-pill';
+      if (!running) { btn.style.background = '#13ff43'; btn.style.color = '#003907'; }
+      else { btn.style.background = ''; btn.style.color = ''; }
+    };
+    CrewNav.init('timers');
+  </script>
+</body>
+</html>

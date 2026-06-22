@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Crew Timeline — Pixel Watch</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="watch.css"/>
+</head>
+<body>
+  <div class="watch" id="watch">
+    <header class="watch-header">
+      <span class="label">▮▮▮</span>
+      <span class="met">MET 12:04:32</span>
+      <span class="label">⚡</span>
+    </header>
+    <div class="watch-content">
+      <div class="date-nav">
+        <button type="button" aria-label="Previous day" onclick="shiftDay(-1)">‹</button>
+        <div style="text-align:center">
+          <div class="label">Current Expedition</div>
+          <div id="date-label" style="font-size:11px;margin-top:2px">MAY 24, 2024</div>
+        </div>
+        <button type="button" aria-label="Next day" onclick="shiftDay(1)">›</button>
+      </div>
+      <div class="card active">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="label" style="color:var(--primary)">09:00 — NOW</span>
+          <span class="badge">ACTIVE</span>
+        </div>
+        <div class="value" style="margin-top:4px;font-size:13px">EVA Suit Prep &amp; Pre-breathe</div>
+        <div class="progress"><span></span></div>
+        <div class="label" style="text-align:right;margin-top:2px">65%</div>
+      </div>
+      <div class="card">
+        <span class="label">11:15 — IN 42M</span>
+        <div class="value" style="margin-top:2px">Payload Ops: BioFabrication</div>
+        <div class="label" style="color:var(--tertiary);margin-top:4px">▪ LAB-1</div>
+      </div>
+      <div class="card" style="opacity:0.7">
+        <span class="label">12:30</span>
+        <div class="value" style="margin-top:2px">Mid-day Nutrition</div>
+        <div class="label" style="margin-top:4px">▪ GALLEY</div>
+      </div>
+      <p class="swipe-hint">↕ CROWN SCROLL FOR MORE TASKS</p>
+    </div>
+    <nav class="watch-nav" aria-label="Module navigation"></nav>
+  </div>
+  <script src="nav.js"></script>
+  <script>
+    const dates = ['MAY 23, 2024','MAY 24, 2024','MAY 25, 2024'];
+    let idx = 1;
+    function shiftDay(d) {
+      idx = Math.max(0, Math.min(dates.length - 1, idx + d));
+      document.getElementById('date-label').textContent = dates[idx];
+    }
+    CrewNav.init('timeline');
+  </script>
+</body>
+</html>
