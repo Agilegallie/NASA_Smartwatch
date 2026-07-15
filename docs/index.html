@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NASA Smartwatch — Evolution of an Astronaut Wearable Interface</title>
+  <meta name="description" content="Explore the NASA Smartwatch app prototype for the International Space Station, built for the Google Pixel Watch. Try the interactive simulator on this page!"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">CREW<span>COMMAND</span></a>
+    <div class="btn-container">
+      <a href="#simulator" class="btn btn-secondary">Simulator</a>
+      <a href="#features" class="btn btn-secondary">Features</a>
+      <a href="#wireframes" class="btn btn-secondary">Wireframes</a>
+      <a href="https://github.com/Agilegallie/NASA_Smartwatch" target="_blank" class="btn btn-primary">GitHub Code</a>
+    </div>
+  </header>
+
+  <!-- Hero Section & Live Simulator -->
+  <section class="hero" id="simulator">
+    <div class="hero-content">
+      <div class="hero-badge">
+        🚀 ISS Crew Wearable Prototype
+      </div>
+      <h1>NASA Smartwatch UI</h1>
+      <p>
+        From a paper-and-pencil concept to a fully functional Google Pixel Watch prototype. Designed to assist astronauts on the International Space Station with glanceable schedules, alarms, ground communications, and procedure timers.
+      </p>
+      <div class="btn-container">
+        <a href="#features" class="btn btn-primary">Explore Features</a>
+        <a href="#deployment" class="btn btn-secondary">Run on a Watch</a>
+      </div>
+    </div>
+
+    <!-- Live Watch Simulator Frame -->
+    <div class="simulator-container">
+      <div class="watch-frame">
+        <div class="bezel-ring"></div>
+        <div class="watch-crown"></div>
+        <div class="watch-screen">
+          <iframe class="watch-iframe" src="screens/hub.html" title="Interactive Watch Simulator"></iframe>
+        </div>
+      </div>
+      <div class="simulator-controls">
+        <p><strong>Interactive Simulator</strong></p>
+        <p>Click screen elements to navigate inside the watch app.</p>
+        <p>Desktop shortcuts: Use <kbd>←</kbd> <kbd>→</kbd> keys to swipe · <kbd>H</kbd> or <kbd>Esc</kbd> for Menu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Brief & Overview -->
+  <section id="brief">
+    <div class="section-header">
+      <h2>Project Brief &amp; Goals</h2>
+      <p>The core objective of the ISS Smartwatch UX challenge.</p>
+    </div>
+    
+    <div class="info-grid">
+      <div class="glass-card">
+        <div class="card-icon">🛰️</div>
+        <div class="card-title">ISS Workspace</div>
+        <div class="card-desc">
+          Created to assist International Space Station crew members. Replaces laptops or tablets for quick, secondary tasks that require hands-free efficiency.
+        </div>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Single App Hub</div>
+        <div class="card-desc">
+          A single dashboard hosting multiple sub-modules. Designed to prevent clutter while ensuring quick notification delivery and status feedback.
+        </div>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">🎨</div>
+        <div class="card-title">Deep Space UX</div>
+        <div class="card-desc">
+          High-contrast visual design optimized for dark environments. Pitch black backgrounds (OLED power-saving) combined with distinct status color codes.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Features Showcase -->
+  <section id="features">
+    <div class="section-header">
+      <h2>App Modules</h2>
+      <p>The four core applications combined within the smartwatch platform.</p>
+    </div>
+
+    <div class="features-detailed">
+      
+      <!-- Feature 1: Crew Timeline -->
+      <div class="feature-detail-row">
+        <div class="feature-detail-content">
+          <h3>
+            <span class="badge badge-timeline">Timeline</span>
+            Crew Timeline
+          </h3>
+          <p>
+            Displays an agenda view of the daily crew timeline directly on the watch. Astronauts can easily view current and upcoming events or look up past schedules.
+          </p>
+          <ul>
+            <li>Scrollable agenda listing all scheduled tasks</li>
+            <li>Day-by-day navigation keys for past and future days</li>
+            <li>Glanceable tiles showing active progress of current tasks</li>
+          </ul>
+        </div>
+        <div class="feature-detail-preview">
+          <img src="wireframes/01-crew-timeline.png" alt="Timeline Module Preview"/>
+        </div>
+      </div>
+
+      <!-- Feature 2: Caution & Warnings -->
+      <div class="feature-detail-row">
+        <div class="feature-detail-content">
+          <h3>
+            <span class="badge badge-cautions">Cautions</span>
+            Caution &amp; Warnings
+          </h3>
+          <p>
+            Color-coded alerts displaying critical station issues. The UI uses high-visibility warnings for urgent events and muted cautions for secondary notices.
+          </p>
+          <ul>
+            <li>Glow-coded alert frames indicating level (Warning, Caution, Note)</li>
+            <li>Instant "Acknowledge All" action to dismiss alerts</li>
+            <li>Haptic-coded feedback simulated per alert category</li>
+          </ul>
+        </div>
+        <div class="feature-detail-preview">
+          <img src="wireframes/02-caution-warnings.png" alt="Caution & Warnings Module Preview"/>
+        </div>
+      </div>
+
+      <!-- Feature 3: Communication Status -->
+      <div class="feature-detail-row">
+        <div class="feature-detail-content">
+          <h3>
+            <span class="badge badge-comm">Comms</span>
+            Communication Status
+          </h3>
+          <p>
+            Tracks the space-to-ground link status, indicating whether the vehicle can currently communicate with mission control (voice/video) or is in a zone of exclusion.
+          </p>
+          <ul>
+            <li>Dual-ring indicator showing uplink and downlink state</li>
+            <li>Real-time status display of signal latency</li>
+            <li>Voice and video link visual indicators</li>
+          </ul>
+        </div>
+        <div class="feature-detail-preview">
+          <img src="wireframes/03-communication-status.png" alt="Communication Status Module Preview"/>
+        </div>
+      </div>
+
+      <!-- Feature 4: Timers -->
+      <div class="feature-detail-row">
+        <div class="feature-detail-content">
+          <h3>
+            <span class="badge badge-timers">Timers</span>
+            Procedural Timers
+          </h3>
+          <p>
+            Easily set countdown timers for specific onboard scientific procedures, timeline tasks, or alarms to the next scheduled activity.
+          </p>
+          <ul>
+            <li>Circular procedure progress/countdown ring</li>
+            <li>Quick-action control buttons (Start, Pause, Reset)</li>
+            <li>Haptic alerts when timer reaches completion</li>
+          </ul>
+        </div>
+        <div class="feature-detail-preview">
+          <img src="wireframes/04-timers.png" alt="Timers Module Preview"/>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Wireframes Gallery -->
+  <section id="wireframes">
+    <div class="section-header">
+      <h2>Wireframes &amp; Mockups</h2>
+      <p>High-resolution wireframe sheets detailing the UX flow and interactions.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <a href="wireframes/00-all-screens.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/00-all-screens.png" alt="All Screens wireframe sheet"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">00-all-screens.png</div>
+          <div class="gallery-desc">Full storyboard layout of the app flows.</div>
+        </div>
+      </a>
+
+      <a href="wireframes/00-hub-menu.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/00-hub-menu.png" alt="Hub Menu wireframe"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">00-hub-menu.png</div>
+          <div class="gallery-desc">2x2 Master launcher menu layout.</div>
+        </div>
+      </a>
+
+      <a href="wireframes/01-navigation-overview.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/01-navigation-overview.png" alt="Navigation overview"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">01-navigation.png</div>
+          <div class="gallery-desc">Swipe gestures and navigation dots mapping.</div>
+        </div>
+      </a>
+
+      <a href="wireframes/01-crew-timeline.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/01-crew-timeline.png" alt="Crew Timeline agenda mockup"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">01-crew-timeline.png</div>
+          <div class="gallery-desc">Glanceable task list and agenda display.</div>
+        </div>
+      </a>
+
+      <a href="wireframes/02-caution-warnings.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/02-caution-warnings.png" alt="Caution and warnings alert cards"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">02-caution-warnings.png</div>
+          <div class="gallery-desc">Alerting panel mockup.</div>
+        </div>
+      </a>
+
+      <a href="wireframes/03-communication-status.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/03-communication-status.png" alt="Communication status screen"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">03-communication.png</div>
+          <div class="gallery-desc">Space-to-ground link status page.</div>
+        </div>
+      </a>
+
+      <a href="wireframes/04-timers.png" target="_blank" class="gallery-item">
+        <div class="gallery-img-container">
+          <img src="wireframes/04-timers.png" alt="Timers ring view"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">04-timers.png</div>
+          <div class="gallery-desc">Procedural circular timers display.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Watch Deployment Instructions -->
+  <section id="deployment">
+    <div class="section-header">
+      <h2>Deploy to Google Pixel Watch</h2>
+      <p>Follow these steps to run the interactive Wear OS app wrapper on real watch hardware.</p>
+    </div>
+
+    <div class="code-guide">
+      <div class="code-header">
+        <div class="code-dots">
+          <div class="code-dot dot-red"></div>
+          <div class="code-dot dot-yellow"></div>
+          <div class="code-dot dot-green"></div>
+        </div>
+        <div class="code-title">Wear OS Deployment Guide</div>
+      </div>
+      <div class="code-content">
+        <pre><code><span class="comment"># 1. Open the Wear directory in Android Studio (not the parent folder)</span>
+<span class="comment"># Close any existing project, then file -> Open -> select "wear/"</span>
+
+<span class="comment"># 2. Build the project using gradlew from terminal</span>
+<span class="cmd">cd</span> ~/crew-watch-wireframes/wear
+<span class="cmd">./gradlew</span> :app:assembleDebug
+
+<span class="comment"># 3. Enable Wireless Debugging on the Pixel Watch</span>
+<span class="comment"># Go to: Settings -> System -> Developer options</span>
+<span class="comment"># Turn ON: ADB Debugging and Debug over Wi-Fi</span>
+
+<span class="comment"># 4. Pair device in Android Studio Device Manager (via Wi-Fi)</span>
+
+<span class="comment"># 5. Install the compiled APK manually if run fails</span>
+<span class="cmd">~/Library/Android/sdk/platform-tools/adb</span> install -r app/build/outputs/apk/debug/app-debug.apk
+
+<span class="comment"># 6. Run on the watch!</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>NASA Smartwatch UI © 2026. Sourced via Freelancer.com Open-Source Challenge.</p>
+    <p>Shared under open public guidelines. Code on <a href="https://github.com/Agilegallie/NASA_Smartwatch" target="_blank">GitHub</a>.</p>
+  </footer>
+
+</body>
+</html>

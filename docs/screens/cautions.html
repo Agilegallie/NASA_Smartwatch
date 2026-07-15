@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Caution &amp; Warnings — Pixel Watch</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="watch.css"/>
+</head>
+<body>
+  <div class="watch" id="watch">
+    <header class="watch-header">
+      <span class="label">▮▮▮</span>
+      <span class="met">MET 12:04:32</span>
+      <span class="label">⚡</span>
+    </header>
+    <div class="watch-content">
+      <p class="label" style="text-align:center;margin-top:36px;color:#ffdad6">C&amp;W STATUS: CRITICAL</p>
+      <div style="width:48px;height:2px;background:#93000a;margin:6px auto 10px"></div>
+      <div class="card warning pulse-warning">
+        <div style="display:flex;justify-content:space-between"><span class="label">WARNING</span><span class="label">12:03</span></div>
+        <div class="value" style="color:#ffdad6;margin-top:4px">FIRE IN NODE 1</div>
+      </div>
+      <div class="card warning pulse-warning">
+        <div style="display:flex;justify-content:space-between"><span class="label">WARNING</span><span class="label">12:01</span></div>
+        <div class="value" style="color:#ffdad6;margin-top:4px">CABIN PRESS LOW</div>
+      </div>
+      <div class="card caution pulse-caution">
+        <div style="display:flex;justify-content:space-between"><span class="label">CAUTION</span><span class="label">11:58</span></div>
+        <div class="value" style="color:#521800;margin-top:4px">CO2 SCRUB A FAIL</div>
+      </div>
+      <div class="card caution-dim">
+        <div style="display:flex;justify-content:space-between"><span class="label">CAUTION</span><span class="label">11:55</span></div>
+        <div class="value" style="margin-top:4px">COMM LINK LAG</div>
+      </div>
+      <button class="btn-pill btn-danger" id="ack" type="button">ACKNOWLEDGE ALL</button>
+      <p class="swipe-hint">TAP CARD FOR DETAIL · HAPTIC ON NEW ALERT</p>
+    </div>
+    <nav class="watch-nav" aria-label="Module navigation"></nav>
+  </div>
+  <script src="nav.js"></script>
+  <script>
+    document.getElementById('ack').onclick = function() {
+      document.querySelectorAll('.pulse-warning,.pulse-caution').forEach(el => {
+        el.classList.remove('pulse-warning','pulse-caution');
+        el.style.opacity = '0.65';
+      });
+      this.textContent = 'ACKNOWLEDGED';
+      this.className = 'btn-pill';
+      this.style.background = '#353535';
+      this.style.color = '#e4beb1';
+    };
+    CrewNav.init('cautions');
+  </script>
+</body>
+</html>
